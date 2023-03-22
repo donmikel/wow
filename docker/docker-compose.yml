@@ -1,0 +1,40 @@
+version: '3'
+services:
+  server:
+    container_name: "server"
+    hostname: server
+    ports:
+      - "8099:8099"
+    image: server:latest
+    command: -config "/etc/server/config.yml"
+    volumes:
+      - ./../applications/server/config/config.yml:/etc/server/config.yml
+  guide-1:
+    container_name: "guide-1"
+    hostname: guide-1
+    ports:
+      - "8100:8100"
+    image: guide:latest
+    command: -config "/etc/guide/config.yml"
+    volumes:
+      - ./../applications/guide/config/config.yml:/etc/guide/config.yml
+  guide-2:
+    container_name: "guide-2"
+    hostname: guide-2
+    ports:
+      - "8101:8101"
+    image: guide:latest
+    command: -config "/etc/guide/config.yml"
+    volumes:
+      - ./../applications/guide/config/config2.yml:/etc/guide/config.yml
+  client:
+    container_name: "client"
+    depends_on:
+      - server
+      - guide-1
+      - guide-2
+    hostname: client
+    image: client:latest
+    command: -config "/etc/client/config.yml"
+    volumes:
+      - ./../applications/client/config/config.yml:/etc/client/config.yml

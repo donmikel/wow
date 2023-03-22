@@ -1,0 +1,11 @@
+ops:
+  http_addr: "0.0.0.0:8002"
+
+api:
+  tcp_addr: ":8099"
+
+guides:
+  - host: "guide-1:8100"
+    key: "key1"
+  - host: "guide-2:8101"
+    key: "key2"

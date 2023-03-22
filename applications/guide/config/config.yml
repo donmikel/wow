@@ -1,0 +1,7 @@
+ops:
+  http_addr: "0.0.0.0:8003"
+
+api:
+  tcp_addr: ":8100"
+
+key: "key1"
