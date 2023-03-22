@@ -74,8 +74,6 @@ func (g *GuideTour) VerifyPuzzle(firstHash string, lastHash string, keys []strin
 func (g *GuideTour) TourGuideHash(previousHash string, stepNumber int, length int, key string) string {
 	data := fmt.Sprintf("%s:%d:%d:%s:%d:%s", previousHash, stepNumber, length, g.getClientID(), g.GetTimeStamp(), key)
 
-	fmt.Println(data)
-
 	return hash(data)
 }
 
