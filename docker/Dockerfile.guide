@@ -8,7 +8,7 @@ ENV GOSUMDB=off \
 RUN apk add --no-cache \
             gcc==11.2.1_git20220219-r2 \
             libc-dev==0.7.2-r3 \
-            git==2.36.3-r0
+            git
 
 WORKDIR /opt/service/
 COPY . .
